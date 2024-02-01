@@ -1,0 +1,60 @@
+import java.util.*;
+public class FiveNum {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the no.of Inputs:");
+        int[] array = new int[5];
+        int n =sc.nextInt();
+        System.out.println("Enter the Values");
+        for(int i=0;i<n;i++){
+            array[i] = sc.nextInt();
+        }
+        // printing
+        System.out.println("The Given Array is:");
+        for(int i=0;i<n;i++){
+            System.out.print(array[i]+" ");
+        }
+        System.out.println(" ");
+        Arrays.sort(array);
+        // Sorting
+        System.out.println("The Sorted Array is:");
+        for(int i=0;i<n;i++){
+            System.out.print(array[i]+" ");
+        }
+        System.out.println(" ");
+
+        // Factorial of Last Number
+        int k = array[n-2];
+        System.out.println("The Last element of the array is "+k);
+        long fact = Factorial.factorial(k);
+        System.out.println("The factorial of the Last Number is :"+fact);
+
+        //Fibonacci Series
+        int f = array[n-1];
+        System.out.println("The 2nd Last Element in the array is:"+f);
+        System.out.println("The Fibonacci Series are:");
+        for(int i=0;i<f;i++){
+            System.out.print(Fibonacci.fibonacci(i)+" ");
+        }
+    }
+    static class Fibonacci{
+        public static int fibonacci(int f){
+            if (f <= 1) {
+                return 1;
+            }
+            else{
+                return (fibonacci(f-1)+fibonacci(f-2));
+            }
+        }
+
+    }
+    static  class Factorial{
+        public static long factorial(int k){
+            long fact = 1;
+            for(int i=1;i<=k;i++){
+                fact = fact*i;
+            }
+            return fact;
+        }
+    }
+}
